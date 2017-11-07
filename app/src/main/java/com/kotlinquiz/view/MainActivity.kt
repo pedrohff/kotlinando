@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btJogar.setOnClickListener {
+            pararMusica()
             val intent = Intent(this, ViewQuestao::class.java)
             startActivity(intent)
         }
@@ -25,6 +26,21 @@ class MainActivity : AppCompatActivity() {
 
         if(pontuacao != null)
             tvPontuacao.text = pontuacao.toString()
+        animarBotao();
+        iniciarMusica();
     }
+
+    fun animarBotao(){
+
+    }
+
+    fun iniciarMusica(){
+
+    }
+
+    fun pararMusica(){
+
+    }
+
 
 }

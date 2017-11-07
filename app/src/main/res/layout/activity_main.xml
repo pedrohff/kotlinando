@@ -9,6 +9,7 @@
     tools:layout_editor_absoluteY="25dp">
 
     <ImageView
+        android:alpha="0.9"
         android:id="@+id/imageView2"
         android:layout_width="218dp"
         android:layout_height="344dp"
