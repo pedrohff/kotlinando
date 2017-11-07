@@ -1,11 +1,19 @@
+package com.kotlinquiz.model
+
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "logQuestao")
-class LogQuestao(@PrimaryKey(autoGenerate = true) var codigo:Int, var questao: Questao, var resposta:String, var tempoResposta:Int, var pontuacao:Double) {
+data class LogQuestao(@PrimaryKey(autoGenerate = true) var codigo:Int? = null, var questaoId: Int?, var resposta:String, var tempoResposta:Int, var pontuacao:Double = 0.0) {
 
+    constructor() : this(0,0,"",0,0.0)
 
-    private fun validaResposta():Boolean = (this.questao.respostaCorreta == this.resposta)
+    private fun validaResposta():Boolean{
+        /*var questao : Questao
+        questao == buscarNaLista(questaoId)
+        return questao.respostaCorreta == this.resposta*/
+        return true
+    }
 
     fun calculaPontuacao() {
         if(validaResposta()){
