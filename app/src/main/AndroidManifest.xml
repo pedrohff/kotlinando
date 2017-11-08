@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.ViewQuestao"></activity>
+        <activity android:name=".view.ViewQuestao" android:screenOrientation="portrait"></activity>
         <activity android:name=".view.ViewFeedback"></activity>
     </application>
 
