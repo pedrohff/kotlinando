@@ -5,9 +5,12 @@ import android.arch.persistence.room.PrimaryKey
 import java.io.Serializable
 
 @Entity(tableName = "logQuestao")
-data class LogQuestao(@PrimaryKey(autoGenerate = true) var codigo:Int? = null, var questaoId: Int?, var resposta:String, var tempoResposta:Int, var pontuacao:Double = 0.0) : Serializable {
+data class LogQuestao(var questaoId: Int? = 0, var resposta:String = "", var tempoResposta:Int = 0, var pontuacao:Double = 0.0) : Serializable {
 
-    constructor() : this(0,0,"",0,0.0)
+    @PrimaryKey(autoGenerate = true)
+    var codigo:Int? = 0
+
+    constructor() : this(0,"",0,0.0)
 
     private fun validaResposta():Boolean{
         /*var questao : Questao

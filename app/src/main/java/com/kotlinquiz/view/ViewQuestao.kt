@@ -80,7 +80,7 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
 
         var intent : Intent = Intent(this, ViewFeedback::class.java)
         intent.putExtra("logQuestao", log)
-        saveLog(log)
+        saveLog(this,log)
 
         startActivity(intent)
         finish()

@@ -1,8 +1,10 @@
 package com.kotlinquiz.dao
 
 import android.arch.persistence.room.Database
+import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.TypeConverters
+import android.content.Context
 import com.kotlinquiz.ext.StringConverter
 import com.kotlinquiz.model.LogQuestao
 
@@ -11,8 +13,18 @@ import com.kotlinquiz.model.LogQuestao
  */
 
 @Database(entities = arrayOf(LogQuestao::class), version = 1, exportSchema = false)
-@TypeConverters(StringConverter::class)
+//@TypeConverters(StringConverter::class)
 abstract class LogQuestaoDatabase : RoomDatabase() {
     abstract fun logQuestaoDao() : LogQuestaoDao
 
+    companion object{
+        private val databaseName = "diet"
+
+        var dbInstance:LogQuestaoDao? = null
+        fun getInstance(context: Context):LogQuestaoDao?{
+            if(dbInstance == null)
+                dbInstance = Room.inMemoryDatabaseBuilder(context, LogQuestaoDatabase::class.java).build().logQuestaoDao()
+            return dbInstance;
+        }
+    }
 }

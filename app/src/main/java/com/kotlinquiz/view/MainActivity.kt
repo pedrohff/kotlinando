@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
 import com.kotlinquiz.R
+import com.kotlinquiz.dao.LogQuestaoDatabase
 import com.kotlinquiz.ext.loadLogs
 import com.kotlinquiz.model.LogQuestao
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         var pontuacao: Double?
-        val listLog = loadLogs()
+        var listLog = loadLogs(this)
         pontuacao = listLog?.fold(0.0) { acc: Double, logQuestao: LogQuestao -> acc + logQuestao.pontuacao }
 
         if (pontuacao != null)
@@ -45,6 +46,16 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() {
         pararMusica()
         super.onStop()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        var pontuacao: Double?
+        val listLog = loadLogs(this)
+        pontuacao = listLog?.fold(0.0) { acc: Double, logQuestao: LogQuestao -> acc + logQuestao.pontuacao }
+
+        if (pontuacao != null)
+            tvPontuacao.text = pontuacao.toString()
     }
 
     fun animarBotao() {
