@@ -9,29 +9,34 @@
     tools:layout_editor_absoluteY="25dp">
 
     <ImageView
-        android:alpha="0.9"
         android:id="@+id/imageView2"
         android:layout_width="218dp"
         android:layout_height="344dp"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
+        android:alpha="0.9"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/btJogar"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/bk_android" />
 
     <Button
         android:id="@+id/btJogar"
-        android:layout_width="194dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
-        android:text="Jogar"
+        android:layout_width="207dp"
+        android:layout_height="89dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/bk_button"
+        android:text="@string/txt_jogar"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/tvPontuacao"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tvPontuacao" />
 
     <TextView
@@ -41,7 +46,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Pontuação:"
+        android:text="@string/txt_pontuacao"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/tvPontuacao"
@@ -55,7 +60,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="0000"
+        android:text="@string/pontuacao_inicial"
         android:textColor="@android:color/black"
         android:textAlignment="center"
         android:textSize="36sp"
@@ -70,7 +75,7 @@
         android:layout_height="136dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintHorizontal_bias="0.454"
@@ -86,11 +91,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Aprendendo"
-        android:textSize="12sp"
+        android:text="@string/txt_aprendendo"
         android:textColor="@android:color/black"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.425" />
 
 </android.support.constraint.ConstraintLayout>

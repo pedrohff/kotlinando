@@ -53,8 +53,8 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
     }
 
     fun questaoAleatoria() {
-        var listaQuestoes:List<Questao> = lerQuestoes()
-        var random = Math.abs(Random().nextInt() % listaQuestoes.size)
+        val listaQuestoes:List<Questao> = lerQuestoes()
+        val random = Math.abs(Random().nextInt() % listaQuestoes.size)
         this.questao = listaQuestoes.get(random)
 
         //questao = Questao(codigo = 0, pergunta = "a", respostaCorreta = "q", opcoes = listOf("q", "w", "e", "r"))
