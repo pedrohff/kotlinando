@@ -1,0 +1,266 @@
+[
+  {
+    "codigo":0,
+    "pergunta":"De que linguagem o Kotlin depende?",
+    "opcoes":[
+      "Java",
+      "C++",
+      "C#",
+      "PHP"
+    ],
+    "respostaCorreta":"Java"
+  },
+  {
+    "codigo":1,
+    "pergunta":"Qual foi a primeira plataforma alvo da linguagem?",
+    "opcoes":[
+      "JavaScript",
+      "JVM",
+      "LLVM",
+      "iOS"
+    ],
+    "respostaCorreta":"JVM"
+  },
+  {
+    "codigo":2,
+    "pergunta":"Por que o Kotlin linguagem é interoperável com Java?",
+    "opcoes":[
+      "Porque traduz o código para Java",
+      "Por compilar o código em bytecode da JVM",
+      "Por ser uma biblioteca Java",
+      "Não é interoperável"
+    ],
+    "respostaCorreta":"Por compilar o código em bytecode da JVM"
+  },
+  {
+    "codigo":2,
+    "pergunta":"Qual das opções nunca causará um NullPointerException",
+    "opcoes":[
+      "x = pessoa!!.nome",
+      "throw new NullPointerException()",
+      "x = pessoa?.nome",
+      "var lazyinit pessoa(\"José\")\nx = pessoa.nome"
+    ],
+    "respostaCorreta":"pessoa?.nome"
+  },
+  {
+    "codigo":3,
+    "pergunta":"Qual dos itens abaixo evita um NullPointerException",
+    "opcoes":[
+      "range",
+      "sealed class",
+      "Operador 'Elvis'",
+      "Funções Lambdas"
+    ],
+    "respostaCorreta":"Operador 'Elvis'"
+  },
+  {
+    "codigo":4,
+    "pergunta":"Qual o padrão das classes em Kotlin?",
+    "opcoes":[
+      "public",
+      "private",
+      "final",
+      "abstract"
+    ],
+    "respostaCorreta":"final"
+  },
+  {
+    "codigo":5,
+    "pergunta":"Como se declara uma variavel imutavel?",
+    "opcoes":[
+      "var",
+      "val",
+      "final static",
+      "static"
+    ],
+    "respostaCorreta":"val"
+  },
+  {
+    "codigo":6,
+    "pergunta":"Qual o resultado ao se imprimir a seguinte função:\n\tfun sum(a:Int,b:Int) = {a+b}\n\tprint(sum(5,2))",
+    "opcoes":[
+      "{5,2}",
+      "{5+2}",
+      "{7}",
+      "7"
+    ],
+    "respostaCorreta":"7"
+  },
+  {
+    "codigo":7,
+    "pergunta":"Como se declara um singleton em Kotlin?",
+    "opcoes":[
+      "class Singleton(){ val INSTANCE:Singleton = Singleton()}",
+      "object Singleton(){}",
+      "singleton class Singleton(){}",
+      "oneinstance class Singleton(){}"
+    ],
+    "respostaCorreta":"object Singleton(){}"
+  },
+  {
+    "codigo":8,
+    "pergunta":"Qual a palavra reservada para declarar funções?",
+    "opcoes":[
+      "fun",
+      "function",
+      "Qualquer variável declarada com ()",
+      "Function"
+    ],
+    "respostaCorreta":"fun"
+  },
+  {
+    "codigo":9,
+    "pergunta":"Como declarar uma variável garantindo que ela será do tipo String?",
+    "opcoes":[
+      "String x",
+      "string x",
+      "x:String",
+      "x"
+    ],
+    "respostaCorreta":"x:String"
+  },
+  {
+    "codigo":10,
+    "pergunta":"Qual dos tipos abaixos não podem ser utilizados na criação de classes?",
+    "opcoes":[
+      "open",
+      "abstract",
+      "data",
+      "closed"
+    ],
+    "respostaCorreta":"closed"
+  },
+  {
+    "codigo":11,
+    "pergunta":"Como a linguagem auxilia a criação de códigos auxiliares?",
+    "opcoes":[
+      "Classes Util, assim como todas outras",
+      "Não existe essa opção",
+      "Com Extension Functions",
+      "A partir de Util Functions"
+    ],
+    "respostaCorreta":"Com Extension Functions"
+  },
+  {
+    "codigo":12,
+    "pergunta": "O que é Kotlin?",
+    "opcoes": [
+      "Linguagem estaticamente tipada, desenvolvida pela JetBrains, cuja sintaxe é mais expressiva e concisa do que a do Java",
+      "Um aplicativo android",
+      "Linguagem de programação web",
+      "Linguagem de programação interpretada apenas a orientação a objeto"
+    ],
+    "respostaCorreta": "Linguagem estaticamente tipada, desenvolvida pela JetBrains, cuja sintaxe é mais expressiva e concisa do que a do Java"
+  },
+  {
+    "codigo":13,
+    "pergunta": "Marque a INCORRETA sobre as vantagens do Kotlin:",
+    "opcoes": [
+      "Proteção Contra Nulo (Null Safety)",
+      "Funções Estendidas",
+      "Classes de Dados (Data Classes)",
+      "Gera tamanho de pacote de arquivo maior que o de Java"
+    ],
+    "respostaCorreta": "Gera tamanho de pacote de arquivo maior que o de Java"
+  },
+  {
+    "codigo":14,
+    "pergunta": "Qual das alternativas não é uma característica do Kotlin:",
+    "opcoes": [
+      "A linguagem suporta facilmente os paradigmas 'Orientação a objetos' e 'Funcional'",
+      "Códigos getters e setters estão presentes de forma implícita, liberando ainda mais espaço para algoritmos mais concisos",
+      "É possível utilizar código Kotlin em Java, mas não o contrário",
+      "Aplicativos Android Kotlin são tão rápidos quanto aplicativos Android Java, podendoser até mais eficientes"
+    ],
+    "respostaCorreta": "É possível utilizar código Kotlin em Java, mas não o contrário"
+  },
+  {
+    "codigo":15,
+    "pergunta": "O que são funções extendidas?",
+    "opcoes": [
+      "Garante que o objeto nunca seja nulo, e se for nulo exige o tratamento para que não ocorra erro",
+      "Elas são usadas para estender funcionalidades em um tipo existente",
+      "Propriedade de um objeto esperado, onde o compilador consegue determinar se uma operação pode ser feita nele",
+      "Garante que as funções estendam funcionalidades em todos os tipos existentes"
+    ],
+    "respostaCorreta": "Elas são usadas para estender funcionalidades em um tipo existente"
+  },
+  {
+    "codigo":16,
+    "pergunta": "O que é Type-Safe:",
+    "opcoes": [
+      "Propriedade de um objeto esperado, onde o compilador consegue determinar se uma operação pode ser feita nele",
+      "Garante que o objeto não seja nulo, e o compilador determina a operação que pode ser feita",
+      "Propriedade de uma classe, que estende as funções em um tipo existente",
+      "Estrutura com dados, sem comportamento do tipo seguro"
+    ],
+    "respostaCorreta": "Propriedade de um objeto esperado, onde o compilador consegue determinar se uma operação pode ser feita nele"
+  },
+  {
+    "codigo":17,
+    "pergunta": "O que é Null-Safe:",
+    "opcoes": [
+      "Consegue determinar a operação a ser utilizada no objeto do tipo null-safe",
+      "Propriedade que garante ao objeto esperado que ele não seja nulo e sem comportamento",
+      "Assegura que o objeto seja nulo, e se não for exige o tratamento para que não ocorra erro",
+      "Garante que o objeto nunca seja nulo, e se for nulo exige o tratamento para que não ocorra erro"
+    ],
+    "respostaCorreta": "Garante que o objeto nunca seja nulo, e se for nulo exige o tratamento para que não ocorra erro"
+  },
+  {
+    "codigo":18,
+    "pergunta": "O que são coroutines?",
+    "opcoes": [
+      "Rotinas, implementadas pelo usuário, para estender funcionalidades",
+      "São rotinas que garantem a integridade das informações",
+      "Rotinas que quando interrompidas são encerradas automaticamente",
+      "São rotinas, que param sua execução para que outras possam ser executadas, e vice-versa, portanto uma coopera com a outra"
+    ],
+    "respostaCorreta": "São rotinas, que param sua execução para que outras possam ser executadas, e vice-versa, portanto uma coopera com a outra"
+  },
+  {
+    "codigo":19,
+    "pergunta": "Qual alternativa é uma das principais diferenças entre Kotlin e Java:",
+    "opcoes": [
+      "Kotlin a linguagem permite manipular funções com as principais, se não todas, operações disponíveis para outras entidades",
+      "Java a linguagem permite manipular funções com as principais, se não todas, operações disponíveis para outras entidades",
+      "Kotlin não suporta notação infixa, onde os operadores são colocados entre os operandos em que eles atuam",
+      "Java suporta notação infixa, onde os operadores são colocados entre os operandos em que eles atuam"
+    ],
+    "respostaCorreta": "Kotlin a linguagem permite manipular funções com as principais, se não todas, operações disponíveis para outras entidades"
+  },
+  {
+    "codigo":20,
+    "pergunta": "Qual o objetivo do “data class”?",
+    "opcoes": [
+      "Armazena as funções de um objeto existente",
+      "Estrutura simples basicamente com dados, sem comportamentos, a não ser os necessários para a infraestrutura básica da linguagem, também chamada de registro",
+      "Estrutura de armazenamento de dados complexa, também conhecida como registro",
+      "Armazena informações e garante que o objeto não seja Null-Safe"
+    ],
+    "respostaCorreta": "Estrutura simples basicamente com dados, sem comportamentos, a não ser os necessários para a infraestrutura básica da linguagem, também chamada de registro"
+  },
+  {
+    "codigo":21,
+    "pergunta": "Sobre Kotlin marque a INCORRETA:",
+    "opcoes": [
+      "Permite a implementação de conceitos do paradigma de programação orientada a objeto quanto de programação funcional, permitindo extrair o melhor dos dois mundos",
+      "Tudo que é feito em Kotlin pode ser feito com Java, em relação a funcionalidade, porém Kotlin se destaca pela praticidade e produtividade",
+      "Permite apenas a programação orientada a objeto diferente do Java em engloba também a programação funcional",
+      "Kotlin traz diversas funcionalidades em comparação ao Java. Uma linguagem mais concisa, o código pode ser reduzido em até 40% em relação ao mesmo código em Java"
+    ],
+    "respostaCorreta": "Permite apenas a programação orientada a objeto diferente do Java em engloba também a programação funcional"
+  },
+  {
+    "codigo":22,
+    "pergunta": "Quem é o criador do Kotlin?",
+    "opcoes": [
+      "Google",
+      "JetBrains",
+      "Oracle",
+      "Microsoft"
+    ],
+    "respostaCorreta": "JetBrains"
+  }
+]

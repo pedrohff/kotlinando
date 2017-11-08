@@ -3,12 +3,15 @@ package com.kotlinquiz.view
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.support.v7.app.AppCompatActivity
+import com.google.gson.Gson
 import com.kotlinquiz.R
 import com.kotlinquiz.ext.saveLog
 import com.kotlinquiz.ext.shuffle
 import com.kotlinquiz.model.LogQuestao
 import com.kotlinquiz.model.Questao
 import kotlinx.android.synthetic.main.activity_view_questao.*
+import java.io.InputStream
+import java.util.*
 
 class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var countDown: CountDownTimer? = null) : AppCompatActivity() {
 
@@ -41,13 +44,20 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
         countDown?.start()
     }
 
-    fun questaoAleatoria() {
-        //var listaQuestoes:List<Questao> = mutableListOf<Questao>()
-        //Falta ler do arquivo json de questoes
-        //var random = Random().nextInt() % listaQuestoes.size
-        //this.questao = listaQuestoes.get(random)
+    fun lerQuestoes() : List<Questao> {
+        val inputStream : InputStream = resources.openRawResource(R.raw.questoes)
+        val arquivo = inputStream.bufferedReader().use { it.readText() }
 
-        questao = Questao(codigo = 0, pergunta = "a", respostaCorreta = "q", opcoes = listOf("q", "w", "e", "r"))
+        val gson = Gson()
+        return gson.fromJson(arquivo, Array<Questao>::class.java).toList()
+    }
+
+    fun questaoAleatoria() {
+        var listaQuestoes:List<Questao> = lerQuestoes()
+        var random = Math.abs(Random().nextInt() % listaQuestoes.size)
+        this.questao = listaQuestoes.get(random)
+
+        //questao = Questao(codigo = 0, pergunta = "a", respostaCorreta = "q", opcoes = listOf("q", "w", "e", "r"))
         this.questao.opcoes.shuffle()
         setQuestao()
     }
