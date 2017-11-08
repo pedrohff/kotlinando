@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btJogarNovamente.setOnClickListener {
+        btJogar.setOnClickListener {
             pararMusica()
             val intent = Intent(this, ViewQuestao::class.java)
             startActivity(intent)
