@@ -1,5 +1,6 @@
 package com.kotlinquiz.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.support.v7.app.AppCompatActivity
@@ -77,6 +78,11 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
         val log = LogQuestao(questaoId = questao.codigo, resposta = resp, tempoResposta = segundos)
         log.calculaPontuacao()
 
+        var intent : Intent = Intent(this, ViewFeedback::class.java)
+        intent.putExtra("logQuestao", log)
         saveLog(log)
+
+        startActivity(intent)
+        finish()
     }
 }
