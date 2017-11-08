@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.google.gson.Gson
 import com.kotlinquiz.R
 import com.kotlinquiz.ext.saveLog
@@ -13,6 +14,12 @@ import com.kotlinquiz.model.Questao
 import kotlinx.android.synthetic.main.activity_view_questao.*
 import java.io.InputStream
 import java.util.*
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+
+
 
 class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var countDown: CountDownTimer? = null) : AppCompatActivity() {
 
@@ -30,19 +37,24 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
     }
 
     fun contador() {
-        countDown = object : CountDownTimer(60000,1000){
-            override fun onTick(millisRestante: Long) {
-                segundos = (millisRestante/1000).toInt()
-                val porcentagem:Int = (segundos/0.6).toInt()
-                barra.progress = porcentagem
-                print("teste - " + millisRestante)
+        Thread(Runnable { runOnUiThread({
+            countDown = object : CountDownTimer(60000,1000){
+                override fun onTick(millisRestante: Long) {
+                    segundos = (millisRestante/1000).toInt()
+                    val porcentagem:Int = (segundos/0.6).toInt()
+                    barra.progress = porcentagem
+                    print("teste - " + millisRestante)
+                    //ANIMAÇÃO
+
+                }
+
+                override fun onFinish() {
+                }
             }
 
-            override fun onFinish() {
-            }
-        }
-
-        countDown?.start()
+            countDown?.start()
+            })
+        }).start()
     }
 
     fun lerQuestoes() : List<Questao> {
@@ -84,5 +96,24 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
 
         startActivity(intent)
         finish()
+    }
+
+    fun fadeAnimation(v: View, time: Long){
+        val fadeOut = ObjectAnimator.ofFloat(v, "alpha", 1f, .3f)
+        fadeOut.duration = time
+        val fadeIn = ObjectAnimator.ofFloat(v, "alpha", .3f, 1f)
+        fadeIn.duration = time
+
+        val mAnimationSet = AnimatorSet()
+
+        mAnimationSet.play(fadeIn).after(fadeOut)
+
+        mAnimationSet.addListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: Animator) {
+                super.onAnimationEnd(animation)
+                mAnimationSet.start()
+            }
+        })
+        mAnimationSet.start()
     }
 }
