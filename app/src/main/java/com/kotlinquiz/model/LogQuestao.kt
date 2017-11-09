@@ -17,7 +17,7 @@ data class LogQuestao(var questaoId: Int? = 0, var resposta:String = "", var tem
     constructor() : this(0,"",0,0.0)
 
     private fun validaResposta(context: Context):Boolean{
-        var questao : Questao = buscarNaLista(questaoId,context)
+        val questao : Questao = buscarNaLista(questaoId,context)
         return questao.respostaCorreta == this.resposta
     }
 
@@ -26,9 +26,8 @@ data class LogQuestao(var questaoId: Int? = 0, var resposta:String = "", var tem
         val arquivo = inputStream.bufferedReader().use { it.readText() }
 
         val gson = Gson()
-        var lista : List<Questao> = gson.fromJson(arquivo, Array<Questao>::class.java).toList()
-        var x = lista.filter{ it.codigo == int }.get(0)
-        return x
+        val lista : List<Questao> = gson.fromJson(arquivo, Array<Questao>::class.java).toList()
+        return lista.filter{ it.codigo == int }.get(0)
     }
 
     fun calculaPontuacao(context: Context) {

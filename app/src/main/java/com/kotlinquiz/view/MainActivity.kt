@@ -25,14 +25,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        var pontuacao: Double?
-        var listLog = loadLogs(this)
-        pontuacao = listLog?.fold(0.0) { acc: Double, logQuestao: LogQuestao -> acc + logQuestao.pontuacao }
+        val pontuacao: Double?
+        val listLog = loadLogs(this)
+        pontuacao = listLog.fold(0.0) { acc: Double, logQuestao: LogQuestao -> acc + logQuestao.pontuacao }
 
-        if (pontuacao != null) {
-            var x = pontuacao.toInt()
-            tvPontuacao.text = x.toString()
-        }
+        val x = pontuacao.toInt()
+        tvPontuacao.text = x.toString()
         animarBotao();
 
     }
@@ -50,14 +48,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        var pontuacao: Double?
+        val pontuacao: Double?
         val listLog = loadLogs(this)
-        pontuacao = listLog?.fold(0.0) { acc: Double, logQuestao: LogQuestao -> acc + logQuestao.pontuacao }
+        pontuacao = listLog.fold(0.0) { acc: Double, logQuestao: LogQuestao -> acc + logQuestao.pontuacao }
 
-        if (pontuacao != null) {
-            var x = pontuacao.toInt()
-            tvPontuacao.text = x.toString()
-        }
+        val x = pontuacao.toInt()
+        tvPontuacao.text = x.toString()
     }
 
     fun animarBotao() {

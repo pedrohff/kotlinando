@@ -10,7 +10,7 @@ import java.util.*
  */
 fun <T:Comparable<T>>shuffle(items:MutableList<T>):List<T>{
     val rg : Random = Random()
-    for (i in 0..items.size - 1) {
+    for (i in 0 until (items.size - 1)) {
         val randomPosition = rg.nextInt(items.size)
         val tmp : T = items[i]
         items[i] = items[randomPosition]
@@ -28,16 +28,10 @@ fun <T> Iterable<T>.shuffle(): List<T> {
 
 fun saveLog(context: Context,logQuestao: LogQuestao): Long {
     val db = LogQuestaoDatabase.getDB(context)
-    var x: Long
-    
-    x = db.logQuestaoDao().save(logQuestao)
-    return x
+    return db.logQuestaoDao().save(logQuestao)
 }
 
-fun loadLogs(context: Context) : List<LogQuestao>? {
+fun loadLogs(context: Context) : List<LogQuestao> {
     val db = LogQuestaoDatabase.getDB(context)
-    var list : List<LogQuestao>? = null
-    list = db.logQuestaoDao().getAll()
-
-    return list
+    return db.logQuestaoDao().getAll()
 }

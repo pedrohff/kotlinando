@@ -16,9 +16,9 @@ import com.kotlinquiz.ext.shuffle
 import com.kotlinquiz.model.LogQuestao
 import com.kotlinquiz.model.Questao
 import kotlinx.android.synthetic.main.activity_view_questao.*
+import me.grantland.widget.AutofitHelper
 import java.io.InputStream
 import java.util.*
-import me.grantland.widget.AutofitHelper
 
 
 class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var countDown: CountDownTimer? = null) : AppCompatActivity() {
@@ -27,6 +27,7 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_questao)
         AutofitHelper.create(tvPergunta)
+
         contador()
         questaoAleatoria()
 
@@ -120,7 +121,7 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
         val log = LogQuestao(questaoId = questao.codigo, resposta = resp, tempoResposta = segundos)
         log.calculaPontuacao(this)
 
-        var intent : Intent = Intent(this, ViewFeedback::class.java)
+        val intent : Intent = Intent(this, ViewFeedback::class.java)
         intent.putExtra("logQuestao", log)
         saveLog(this,log)
 

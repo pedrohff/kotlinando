@@ -33,17 +33,17 @@ class ViewFeedback(var logQuestao: LogQuestao = LogQuestao()) : AppCompatActivit
             tvTitulo.setTextColor(Color.parseColor("#a06565"))
         }
 
-        tvPontuacao.text = logQuestao.pontuacao.toString()
+        tvPontuacao.text = logQuestao.pontuacao.toInt().toString()
     }
 
     fun btNovaQuestao() {
-        var intent : Intent = Intent(this,ViewQuestao::class.java)
+        val intent : Intent = Intent(this,ViewQuestao::class.java)
         startActivity(intent)
         finish()
     }
 
     fun btTelaPrincipal() {
-        var intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
     }
