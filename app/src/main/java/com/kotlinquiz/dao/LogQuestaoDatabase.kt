@@ -10,7 +10,7 @@ import com.kotlinquiz.model.LogQuestao
  * Created by pedro on 06/11/17.
  */
 
-@Database(entities = arrayOf(LogQuestao::class), version = 2, exportSchema = false)
+@Database(entities = arrayOf(LogQuestao::class), version = 3, exportSchema = false)
 //@TypeConverters(StringConverter::class)
 abstract class LogQuestaoDatabase : RoomDatabase() {
 

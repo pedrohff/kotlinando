@@ -9,12 +9,12 @@ import java.io.InputStream
 import java.io.Serializable
 
 @Entity(tableName = "logQuestao")
-data class LogQuestao(var questaoId: Int? = 0, var resposta:String = "", var tempoResposta:Int = 0, var pontuacao:Double = 0.0) : Serializable {
+data class LogQuestao(var questaoId: Int? = 0, var resposta:String?, var tempoResposta:Int = 0, var pontuacao:Double = 0.0) : Serializable {
 
     @PrimaryKey
     var codigo:Int? = null
 
-    constructor() : this(0,"",0,0.0)
+    constructor() : this(0,null,0,0.0)
 
     private fun validaResposta(context: Context):Boolean{
         val questao : Questao = buscarNaLista(questaoId,context)
@@ -31,7 +31,7 @@ data class LogQuestao(var questaoId: Int? = 0, var resposta:String = "", var tem
     }
 
     fun calculaPontuacao(context: Context) {
-        if(validaResposta(context)){
+        if(validaResposta(context) && resposta!=null){
             this.pontuacao = (tempoResposta+40.0)
         }else{
             this.pontuacao = 0.0

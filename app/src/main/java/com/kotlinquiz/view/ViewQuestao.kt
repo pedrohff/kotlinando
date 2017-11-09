@@ -59,7 +59,8 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
                 }
 
                 override fun onFinish() {
-//                    animarTempo(100)
+                    validaQuestao(null)
+
                 }
             }
 
@@ -114,11 +115,13 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
         resp4.text = questao.opcoes[3]
     }
 
-    fun validaQuestao(resp:String) {
+    fun validaQuestao(resp:String?) {
         countDown?.cancel()
 
 
         val log = LogQuestao(questaoId = questao.codigo, resposta = resp, tempoResposta = segundos)
+        if(resp==null)
+            log.tempoResposta = 0
         log.calculaPontuacao(this)
 
         val intent : Intent = Intent(this, ViewFeedback::class.java)
