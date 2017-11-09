@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KotlinQuiz</string>
+    <string name="app_name">Kotlinando</string>
     <string name="txt_aprendendo">Aprendendo</string>
     <string name="pontuacao_inicial">0000</string>
     <string name="txt_pontuacao">Pontuação:</string>
