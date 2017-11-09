@@ -18,6 +18,7 @@ import com.kotlinquiz.model.Questao
 import kotlinx.android.synthetic.main.activity_view_questao.*
 import java.io.InputStream
 import java.util.*
+import me.grantland.widget.AutofitHelper
 
 
 class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var countDown: CountDownTimer? = null) : AppCompatActivity() {
@@ -25,6 +26,7 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_questao)
+        AutofitHelper.create(tvPergunta)
         contador()
         questaoAleatoria()
 
@@ -33,6 +35,15 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
         resp3.setOnClickListener { validaQuestao(resp3.text.toString()) }
         resp4.setOnClickListener { validaQuestao(resp4.text.toString()) }
 
+
+
+    }
+
+    override fun onPostResume() {
+        super.onPostResume()
+        //adição do auto fit no texto de pergunta, próximo teste nos botões.
+        //autofit text view tvPergunta
+        //autofit text button
     }
 
     fun contador() {
@@ -43,11 +54,11 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
                     val porcentagem:Int = (segundos/0.6).toInt()
                     barra.progress = porcentagem
                     print("teste - " + millisRestante)
-                    //ANIMAÇÃO
-
+                    //ANIMAÇÃO DE PERIGO
                 }
 
                 override fun onFinish() {
+//                    animarTempo(100)
                 }
             }
 
@@ -55,6 +66,26 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
             })
         }).start()
     }
+
+   /* @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    private fun animarTempo(progress: Int) {
+        if (barra.progress < 80){
+            imagem_perigo.alpha = 0.3f;
+            fadeAnimation(imagem_perigo, 3000)
+        } else if (barra.progress < 70) {
+            imagem_perigo.alpha = 0.5f;
+            fadeAnimation(imagem_perigo, 2000)
+        } else if (barra.progress < 50) {
+            imagem_perigo.alpha = 0.7f;
+            fadeAnimation(imagem_perigo, 1000)
+        } else if (barra.progress < 50){
+            imagem_perigo.alpha = 0.8f;
+            fadeAnimation(imagem_perigo, 500)
+        } else {
+            imagem_perigo.alpha = 0.0f;
+            imagem_perigo.animation?.cancel()
+        }
+    }*/
 
     fun lerQuestoes() : List<Questao> {
         val inputStream : InputStream = resources.openRawResource(R.raw.questoes)

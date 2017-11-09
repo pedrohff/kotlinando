@@ -44,6 +44,11 @@
         android:textColor="@color/colorTextPrimary"
         android:textSize="28sp"
         android:textStyle="bold"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeStepGranularity="4sp"
+        app:layout_constraintBottom_toTopOf="@+id/resp1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barra" />
