@@ -45,7 +45,7 @@
   },
   {
     "codigo":3,
-    "pergunta":"Qual dos itens abaixo evita um NullPointerException",
+    "pergunta": "Qual dos itens abaixo evita um NullPointerException?",
     "opcoes":[
       "range",
       "sealed class",

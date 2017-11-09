@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/KotlinQuiz.iml" filepath="$PROJECT_DIR$/KotlinQuiz.iml" />
+      <module fileurl="file://D:\ProjetosAndroidStudio\kotlinando\KotlinQuiz.iml" filepath="D:\ProjetosAndroidStudio\kotlinando\KotlinQuiz.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kotlinando.iml" filepath="$PROJECT_DIR$/kotlinando.iml" />
     </modules>
   </component>
 </project>
