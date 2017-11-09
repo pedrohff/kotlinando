@@ -33,17 +33,6 @@
     "respostaCorreta":"Por compilar o código em bytecode da JVM"
   },
   {
-    "codigo":2,
-    "pergunta":"Qual das opções nunca causará um NullPointerException",
-    "opcoes":[
-      "x = pessoa!!.nome",
-      "throw new NullPointerException()",
-      "x = pessoa?.nome",
-      "var lazyinit pessoa(\"José\")\nx = pessoa.nome"
-    ],
-    "respostaCorreta":"pessoa?.nome"
-  },
-  {
     "codigo":3,
     "pergunta": "Qual dos itens abaixo evita um NullPointerException?",
     "opcoes":[
@@ -144,7 +133,7 @@
   },
   {
     "codigo":12,
-    "pergunta": "O que é Kotlin?",
+    "pergunta": "Qual das opções mais define o Kotlin?",
     "opcoes": [
       "Linguagem estaticamente tipada, desenvolvida pela JetBrains, cuja sintaxe é mais expressiva e concisa do que a do Java",
       "Um aplicativo android",
@@ -155,7 +144,7 @@
   },
   {
     "codigo":13,
-    "pergunta": "Marque a INCORRETA sobre as vantagens do Kotlin:",
+    "pergunta": "Qual das opções aponta uma desvantagem de utilizar o Kotlin?",
     "opcoes": [
       "Proteção Contra Nulo (Null Safety)",
       "Funções Estendidas",
@@ -166,18 +155,18 @@
   },
   {
     "codigo":14,
-    "pergunta": "Qual das alternativas não é uma característica do Kotlin:",
+    "pergunta": "Qual das alternativas não é uma característica do Kotlin?",
     "opcoes": [
       "A linguagem suporta facilmente os paradigmas 'Orientação a objetos' e 'Funcional'",
       "Códigos getters e setters estão presentes de forma implícita, liberando ainda mais espaço para algoritmos mais concisos",
       "É possível utilizar código Kotlin em Java, mas não o contrário",
-      "Aplicativos Android Kotlin são tão rápidos quanto aplicativos Android Java, podendoser até mais eficientes"
+      "Aplicativos Android Kotlin são tão rápidos quanto aplicativos Android Java, podendo ser até mais eficientes"
     ],
     "respostaCorreta": "É possível utilizar código Kotlin em Java, mas não o contrário"
   },
   {
     "codigo":15,
-    "pergunta": "O que são funções extendidas?",
+    "pergunta": "O que são funções estendidas?",
     "opcoes": [
       "Garante que o objeto nunca seja nulo, e se for nulo exige o tratamento para que não ocorra erro",
       "Elas são usadas para estender funcionalidades em um tipo existente",
@@ -188,7 +177,7 @@
   },
   {
     "codigo":16,
-    "pergunta": "O que é Type-Safe:",
+    "pergunta": "O que é Type-Safe?",
     "opcoes": [
       "Propriedade de um objeto esperado, onde o compilador consegue determinar se uma operação pode ser feita nele",
       "Garante que o objeto não seja nulo, e o compilador determina a operação que pode ser feita",
@@ -199,7 +188,7 @@
   },
   {
     "codigo":17,
-    "pergunta": "O que é Null-Safe:",
+    "pergunta": "O que é Null-Safe?",
     "opcoes": [
       "Consegue determinar a operação a ser utilizada no objeto do tipo null-safe",
       "Propriedade que garante ao objeto esperado que ele não seja nulo e sem comportamento",
@@ -262,5 +251,16 @@
       "Microsoft"
     ],
     "respostaCorreta": "JetBrains"
+  },
+  {
+    "codigo":23,
+    "pergunta":"Qual das opções nunca causará um NullPointerException?",
+    "opcoes":[
+      "x = pessoa!!.nome",
+      "throw new NullPointerException()",
+      "x = pessoa?.nome",
+      "var lazyinit pessoa(\"José\")\nx = pessoa.nome"
+    ],
+    "respostaCorreta":"pessoa?.nome"
   }
 ]
