@@ -3,12 +3,10 @@ package com.kotlinquiz.view
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.support.annotation.UiThread
 import android.support.v7.app.AppCompatActivity
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
 import com.kotlinquiz.R
-import com.kotlinquiz.dao.LogQuestaoDatabase
 import com.kotlinquiz.ext.loadLogs
 import com.kotlinquiz.model.LogQuestao
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,8 +29,10 @@ class MainActivity : AppCompatActivity() {
         var listLog = loadLogs(this)
         pontuacao = listLog?.fold(0.0) { acc: Double, logQuestao: LogQuestao -> acc + logQuestao.pontuacao }
 
-        if (pontuacao != null)
-            tvPontuacao.text = pontuacao.toString()
+        if (pontuacao != null) {
+            var x = pontuacao.toInt()
+            tvPontuacao.text = x.toString()
+        }
         animarBotao();
 
     }
@@ -54,8 +54,10 @@ class MainActivity : AppCompatActivity() {
         val listLog = loadLogs(this)
         pontuacao = listLog?.fold(0.0) { acc: Double, logQuestao: LogQuestao -> acc + logQuestao.pontuacao }
 
-        if (pontuacao != null)
-            tvPontuacao.text = pontuacao.toString()
+        if (pontuacao != null) {
+            var x = pontuacao.toInt()
+            tvPontuacao.text = x.toString()
+        }
     }
 
     fun animarBotao() {

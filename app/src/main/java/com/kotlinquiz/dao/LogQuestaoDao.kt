@@ -11,8 +11,8 @@ import com.kotlinquiz.model.LogQuestao
     @Query("select * from logQuestao")
     fun getAll() : List<LogQuestao>
 
-    @Insert(onConflict = REPLACE)
-    fun save(log: LogQuestao)
+    @Insert
+    fun save(logs: LogQuestao) : Long
 
     @Update(onConflict = REPLACE)
     fun update(log: LogQuestao)

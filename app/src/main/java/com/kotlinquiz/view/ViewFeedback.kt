@@ -25,7 +25,11 @@ class ViewFeedback(var logQuestao: LogQuestao = LogQuestao()) : AppCompatActivit
             tvTitulo.text = "Resposta\nCorreta"
             tvTitulo.setTextColor(Color.parseColor("#5fba7d"))
         } else {
-            tvTitulo.text = "Resposta\nErrada"
+            if(logQuestao.tempoResposta==0)
+                tvTitulo.text = "Tempo\nEsgotado"
+            else
+                tvTitulo.text = "Resposta\nErrada"
+
             tvTitulo.setTextColor(Color.parseColor("#a06565"))
         }
 

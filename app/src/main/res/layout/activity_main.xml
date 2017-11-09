@@ -63,7 +63,7 @@
         android:text="@string/pontuacao_inicial"
         android:textColor="@android:color/black"
         android:textAlignment="center"
-        android:textSize="36sp"
+        android:textSize="44sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#eccc46</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorBackground">#f8d86e</color>
+    <color name="colorBackgroundGreen">#e3fa8a</color>
+    <color name="colorTextPrimary">#4a568b</color>
+    <color name="colorTextLight">#3984ca</color>
+    <color name="colorTextLighter">#88add0</color>
+    <color name="colorBotao1">#6353ab</color>
+    <color name="colorBotao2">#adc0e1</color>
+    <color name="colorBotao3">#eccc46</color>
+    <color name="colorBotao4">#7fa345</color>
+    <color name="colorWhite">#ffffff</color>
+
+    <!--color name="color"></color-->
+
 </resources>

@@ -1,10 +1,6 @@
 package com.kotlinquiz.ext
 
-import android.arch.persistence.room.Room
 import android.content.Context
-import android.os.AsyncTask
-import com.kotlinquiz.dao.DB
-import com.kotlinquiz.dao.LogQuestaoDao
 import com.kotlinquiz.dao.LogQuestaoDatabase
 import com.kotlinquiz.model.LogQuestao
 import java.util.*
@@ -30,25 +26,18 @@ fun <T> Iterable<T>.shuffle(): List<T> {
     return list
 }
 
-fun saveLog(context: Context,logQuestao: LogQuestao) {
-    Room.databaseBuilder(context, LogQuestao::class.java, LogQuestaoDatabase)
-
-    object : AsyncTask<Void, Void, Void>() {
-        override fun doInBackground(vararg voids: Void): Void? {
-            LogQuestaoDatabase.getInstance(context)?.save(logQuestao)
-            return null
-        }
-    }.execute()
+fun saveLog(context: Context,logQuestao: LogQuestao): Long {
+    val db = LogQuestaoDatabase.getDB(context)
+    var x: Long
+    
+    x = db.logQuestaoDao().save(logQuestao)
+    return x
 }
 
 fun loadLogs(context: Context) : List<LogQuestao>? {
+    val db = LogQuestaoDatabase.getDB(context)
     var list : List<LogQuestao>? = null
-    object : AsyncTask<Void, Void, List<LogQuestao>>() {
-        override fun doInBackground(vararg voids: Void): List<LogQuestao>? {
-            list = LogQuestaoDatabase.getInstance(context)?.getAll()
-            return null
-        }
-    }.execute()
+    list = db.logQuestaoDao().getAll()
 
     return list
 }
