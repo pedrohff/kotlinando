@@ -37,7 +37,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
     compile 'com.android.support.constraint:constraint-layout:1.1.0-beta3'
-
+    compile 'com.github.AndroidDeveloperLB:AutoFitTextView:4'
     compile "android.arch.persistence.room:runtime:1.0.0"
     kapt "android.arch.persistence.room:compiler:1.0.0"
     compile 'com.google.code.gson:gson:2.8.2'
