@@ -5,8 +5,8 @@ import android.animation.AnimatorListenerAdapter
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.google.gson.Gson
@@ -21,73 +21,78 @@ import java.io.InputStream
 import java.util.*
 
 
-class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var countDown: CountDownTimer? = null) : AppCompatActivity() {
+class ViewQuestao(var segundos: Int = 60, var questao: Questao = Questao()) : AppCompatActivity(), MediaPlayer.OnPreparedListener {
+
+
+    var tik_tak_music: MediaPlayer? = null
+    var duration = 0
+
+
+    //MediaPlayer Progress Handler
+    private var onEverySecond: Runnable = object : Runnable {
+        override fun run() {
+            if (barra != null) {
+                barra.progress = barra.max - (tik_tak_music?.currentPosition ?: 0)
+                updateAction()
+            }
+
+            if (tik_tak_music?.isPlaying == true) {
+                barra.postDelayed(this, 200)
+            }
+        }
+    }
+
+    private fun updateAction() {
+        if (barra.progress == 0) {
+            pararMusica()
+            validaQuestao(null)
+        }
+    }
+
+
+    fun getVolume(): Float {
+        val currVolume = 10.0f
+        val maxVolume = 15.0f
+        return currVolume / maxVolume
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_questao)
         AutofitHelper.create(tvPergunta)
+        tik_tak_music = MediaPlayer.create(this, R.raw.questoes_music)
+        tik_tak_music?.setVolume(getVolume(), getVolume())
+        tik_tak_music?.setOnPreparedListener(this)
 
-        contador()
         questaoAleatoria()
 
         resp1.setOnClickListener { validaQuestao(resp1.text.toString()) }
         resp2.setOnClickListener { validaQuestao(resp2.text.toString()) }
         resp3.setOnClickListener { validaQuestao(resp3.text.toString()) }
         resp4.setOnClickListener { validaQuestao(resp4.text.toString()) }
-
-
-
     }
 
-    override fun onPostResume() {
-        super.onPostResume()
-        //adição do auto fit no texto de pergunta, próximo teste nos botões.
-        //autofit text view tvPergunta
-        //autofit text button
+    override fun onStart() {
+        super.onStart()
+        reproduzirMusica()
     }
 
-    fun contador() {
-        Thread(Runnable { runOnUiThread({
-            countDown = object : CountDownTimer(60000,1000){
-                override fun onTick(millisRestante: Long) {
-                    segundos = (millisRestante/1000).toInt()
-                    val porcentagem:Int = (segundos/0.6).toInt()
-                    barra.progress = porcentagem
-                    print("teste - " + millisRestante)
-                    //ANIMAÇÃO DE PERIGO
-                }
-
-                override fun onFinish() {
-                    validaQuestao(null)
-
-                }
-            }
-
-            countDown?.start()
-            })
+    private fun reproduzirMusica() {
+        Thread(Runnable {
+            tik_tak_music?.start()
         }).start()
     }
 
-   /* @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    private fun animarTempo(progress: Int) {
-        if (barra.progress < 80){
-            imagem_perigo.alpha = 0.3f;
-            fadeAnimation(imagem_perigo, 3000)
-        } else if (barra.progress < 70) {
-            imagem_perigo.alpha = 0.5f;
-            fadeAnimation(imagem_perigo, 2000)
-        } else if (barra.progress < 50) {
-            imagem_perigo.alpha = 0.7f;
-            fadeAnimation(imagem_perigo, 1000)
-        } else if (barra.progress < 50){
-            imagem_perigo.alpha = 0.8f;
-            fadeAnimation(imagem_perigo, 500)
-        } else {
-            imagem_perigo.alpha = 0.0f;
-            imagem_perigo.animation?.cancel()
-        }
-    }*/
+    override fun onPause() {
+        super.onPause()
+        pararMusica()
+    }
+
+    private fun pararMusica() {
+        Thread(Runnable {
+            tik_tak_music?.pause()
+        }).start()
+    }
 
     fun lerQuestoes() : List<Questao> {
         val inputStream : InputStream = resources.openRawResource(R.raw.questoes)
@@ -116,15 +121,13 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
     }
 
     fun validaQuestao(resp:String?) {
-        countDown?.cancel()
-
 
         val log = LogQuestao(questaoId = questao.codigo, resposta = resp, tempoResposta = segundos)
         if(resp==null)
             log.tempoResposta = 0
         log.calculaPontuacao(this)
 
-        val intent : Intent = Intent(this, ViewFeedback::class.java)
+        val intent = Intent(this, ViewFeedback::class.java)
         intent.putExtra("logQuestao", log)
         saveLog(this,log)
 
@@ -149,5 +152,12 @@ class ViewQuestao (var segundos:Int = 60, var questao: Questao = Questao(), var 
             }
         })
         mAnimationSet.start()
+    }
+
+    //MediaPlayer
+    override fun onPrepared(p0: MediaPlayer?) {
+        duration = tik_tak_music?.duration ?: 0
+        barra.max = duration
+        barra.postDelayed(onEverySecond, 200)
     }
 }
