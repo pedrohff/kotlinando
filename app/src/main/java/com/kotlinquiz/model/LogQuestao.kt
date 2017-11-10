@@ -18,7 +18,7 @@ data class LogQuestao(var questaoId: Int? = 0, var resposta:String?, var tempoRe
 
     private fun validaResposta(context: Context):Boolean{
         val questao : Questao = buscarNaLista(questaoId,context)
-        return questao.respostaCorreta == this.resposta
+        return questao.respostaCorreta.toLowerCase() == this.resposta?.toLowerCase()
     }
 
     private fun buscarNaLista(int: Int?,context: Context) : Questao{
@@ -32,9 +32,7 @@ data class LogQuestao(var questaoId: Int? = 0, var resposta:String?, var tempoRe
 
     fun calculaPontuacao(context: Context) {
         if(validaResposta(context) && resposta!=null){
-            var r = -tempoResposta * 5 + 40.0
-            if (r < 0) r *= -1
-            this.pontuacao = (r)
+            this.pontuacao = tempoResposta + 40.0
         }else{
             this.pontuacao = 0.0
         }

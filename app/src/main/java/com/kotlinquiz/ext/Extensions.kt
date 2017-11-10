@@ -9,7 +9,7 @@ import java.util.*
  * Created by pedro on 07/11/17.
  */
 fun <T:Comparable<T>>shuffle(items:MutableList<T>):List<T>{
-    val rg : Random = Random()
+    val rg = Random()
     for (i in 0 until (items.size - 1)) {
         val randomPosition = rg.nextInt(items.size)
         val tmp : T = items[i]

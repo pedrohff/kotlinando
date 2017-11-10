@@ -1,14 +1,9 @@
 package com.kotlinquiz.view
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.view.View
 import com.google.gson.Gson
 import com.kotlinquiz.R
 import com.kotlinquiz.ext.saveLog
@@ -122,8 +117,8 @@ class ViewQuestao(var questao: Questao = Questao()) : AppCompatActivity(), Media
 
     fun validaQuestao(resp:String?) {
 
-        val seconds = (tik_tak_music?.currentPosition?.div(1000))?.rem(60)
-        val log = LogQuestao(questaoId = questao.codigo, resposta = resp, tempoResposta = seconds ?: (barra.max - barra.progress))
+        val segundos = (barra.progress / 1000) % 60
+        val log = LogQuestao(questaoId = questao.codigo, resposta = resp, tempoResposta = segundos)
         if(resp==null)
             log.tempoResposta = 0
         log.calculaPontuacao(this)
@@ -136,7 +131,7 @@ class ViewQuestao(var questao: Questao = Questao()) : AppCompatActivity(), Media
         finish()
     }
 
-    fun fadeAnimation(v: View, time: Long){
+    /*fun fadeAnimation(v: View, time: Long){
         val fadeOut = ObjectAnimator.ofFloat(v, "alpha", 1f, .3f)
         fadeOut.duration = time
         val fadeIn = ObjectAnimator.ofFloat(v, "alpha", .3f, 1f)
@@ -153,7 +148,7 @@ class ViewQuestao(var questao: Questao = Questao()) : AppCompatActivity(), Media
             }
         })
         mAnimationSet.start()
-    }
+    }*/
 
     //MediaPlayer
     override fun onPrepared(p0: MediaPlayer?) {

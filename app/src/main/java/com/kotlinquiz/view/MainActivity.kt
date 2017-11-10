@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         val x = pontuacao.toInt()
         tvPontuacao.text = x.toString()
-        animarBotao();
+        animarBotao()
 
     }
 
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         Thread(Runnable {
             if (!media?.isPlaying!!) {
                 media?.isLooping = true
-                media?.start();
+                media?.start()
             }
         }).start()
     }
@@ -79,11 +79,9 @@ class MainActivity : AppCompatActivity() {
     fun pararMusica() {
         if (media != null) {
             if (media?.isPlaying!!) {
-                media?.stop();
+                media?.stop()
                 media?.release()
                 media = null
-                // media?.release()
-                //media = null;
             }
         }
     }

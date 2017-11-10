@@ -262,5 +262,71 @@
       "var lazyinit pessoa(\"José\")\nx = pessoa.nome"
     ],
     "respostaCorreta":"pessoa?.nome"
+  },
+  {
+    "codigo": 21,
+    "pergunta": "Em que ano foi lançado a primeira versão de Kotlin?",
+    "opcoes": [
+      "2017",
+      "2016",
+      "2015",
+      "2014"
+    ],
+    "respostaCorreta": "2016"
+  },
+  {
+    "codigo": 22,
+    "pergunta": "Em que ano os engenheiros do Google Android anunciaram Kotlin como a mais nova linguagem de programação oficial para desenvolvimento de aplicativos Androd?",
+    "opcoes": [
+      "2017",
+      "2016",
+      "2015",
+      "2014"
+    ],
+    "respostaCorreta": "2017"
+  },
+  {
+    "codigo": 23,
+    "pergunta": "O que é uma função pura ?",
+    "opcoes": [
+      "Função que tem efeitos colaterais",
+      "Função que não tem efeitos colaterais",
+      "Função principal",
+      "Nenhuma das alternativas estão corretas"
+    ],
+    "respostaCorreta": "função que não tem efeitos colaterais"
+  },
+  {
+    "codigo": 24,
+    "pergunta": "O que é Anko?",
+    "opcoes": [
+      "Função",
+      "Biblioteca",
+      "Classe ",
+      "Método"
+    ],
+    "respostaCorreta": "biblioteca"
+  },
+  {
+    "codigo": 25,
+    "pergunta": "Quando os Arrays são invariantes?",
+    "opcoes": [
+      "Todos os tipos de Arrays são incompativeis",
+      "Todos os tipos de Arrays são iguais",
+      "Todos os tipos de Arrays não são indiferentes",
+      "Todos alternativas estão corretas"
+    ],
+    "respostaCorreta": "Todos os tipos de Arrays são incompativeis"
+  },
+  {
+    "codigo": 26,
+    "pergunta": "Marque a opção que não é verdadeira sobre alinguagem Kotlin ?",
+    "opcoes": [
+      "Kotlin possui Function Type ao invés de conversão de Single Abstract Methods como no Java",
+      "Kotlin possui checked exception",
+      "Kotlin possui maior expressividade e segurança",
+      "todas as alternativas são verdadeiras"
+    ],
+    "respostaCorreta": "Kotlin possui checked exception"
   }
 ]
