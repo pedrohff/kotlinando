@@ -21,7 +21,7 @@ import java.io.InputStream
 import java.util.*
 
 
-class ViewQuestao(var segundos: Int = 60, var questao: Questao = Questao()) : AppCompatActivity(), MediaPlayer.OnPreparedListener {
+class ViewQuestao(var questao: Questao = Questao()) : AppCompatActivity(), MediaPlayer.OnPreparedListener {
 
 
     var tik_tak_music: MediaPlayer? = null
@@ -122,7 +122,8 @@ class ViewQuestao(var segundos: Int = 60, var questao: Questao = Questao()) : Ap
 
     fun validaQuestao(resp:String?) {
 
-        val log = LogQuestao(questaoId = questao.codigo, resposta = resp, tempoResposta = segundos)
+        val seconds = (tik_tak_music?.currentPosition?.div(1000))?.rem(60)
+        val log = LogQuestao(questaoId = questao.codigo, resposta = resp, tempoResposta = seconds ?: (barra.max - barra.progress))
         if(resp==null)
             log.tempoResposta = 0
         log.calculaPontuacao(this)

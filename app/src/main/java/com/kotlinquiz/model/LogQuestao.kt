@@ -32,7 +32,9 @@ data class LogQuestao(var questaoId: Int? = 0, var resposta:String?, var tempoRe
 
     fun calculaPontuacao(context: Context) {
         if(validaResposta(context) && resposta!=null){
-            this.pontuacao = (tempoResposta+40.0)
+            var r = -tempoResposta * 5 + 40.0
+            if (r < 0) r *= -1
+            this.pontuacao = (r)
         }else{
             this.pontuacao = 0.0
         }
