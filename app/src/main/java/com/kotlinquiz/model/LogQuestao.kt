@@ -8,6 +8,7 @@ import com.kotlinquiz.R
 import java.io.InputStream
 import java.io.Serializable
 
+
 @Entity(tableName = "logQuestao")
 data class LogQuestao(var questaoId: Int? = 0, var resposta:String?, var tempoResposta:Int = 0, var pontuacao:Double = 0.0) : Serializable {
 

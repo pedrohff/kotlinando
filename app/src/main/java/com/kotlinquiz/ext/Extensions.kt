@@ -35,3 +35,8 @@ fun loadLogs(context: Context) : List<LogQuestao> {
     val db = LogQuestaoDatabase.getDB(context)
     return db.logQuestaoDao().getAll()
 }
+
+fun deleteAll(context: Context) {
+    val db = LogQuestaoDatabase.getDB(context)
+    db.logQuestaoDao().deleteAll()
+}

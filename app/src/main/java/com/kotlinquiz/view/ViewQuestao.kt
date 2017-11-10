@@ -16,6 +16,7 @@ import java.io.InputStream
 import java.util.*
 
 
+
 class ViewQuestao(var questao: Questao = Questao()) : AppCompatActivity(), MediaPlayer.OnPreparedListener {
 
 
@@ -38,7 +39,7 @@ class ViewQuestao(var questao: Questao = Questao()) : AppCompatActivity(), Media
     }
 
     private fun updateAction() {
-        if (barra.progress == 0) {
+        if (tik_tak_music?.currentPosition!! >= tik_tak_music?.duration!!) {
             pararMusica()
             validaQuestao(null)
         }
@@ -46,7 +47,7 @@ class ViewQuestao(var questao: Questao = Questao()) : AppCompatActivity(), Media
 
 
     fun getVolume(): Float {
-        val currVolume = 10.0f
+        val currVolume = 5.0f
         val maxVolume = 15.0f
         return currVolume / maxVolume
     }
@@ -55,6 +56,7 @@ class ViewQuestao(var questao: Questao = Questao()) : AppCompatActivity(), Media
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_questao)
         AutofitHelper.create(tvPergunta)
+
         tik_tak_music = MediaPlayer.create(this, R.raw.questoes_music)
         tik_tak_music?.setVolume(getVolume(), getVolume())
         tik_tak_music?.setOnPreparedListener(this)
@@ -109,6 +111,7 @@ class ViewQuestao(var questao: Questao = Questao()) : AppCompatActivity(), Media
 
     fun setQuestao() {
         tvPergunta.text = questao.pergunta
+//        AutofitHelper.create(tvPergunta)
         resp1.text = questao.opcoes[0]
         resp2.text = questao.opcoes[1]
         resp3.text = questao.opcoes[2]
@@ -117,7 +120,7 @@ class ViewQuestao(var questao: Questao = Questao()) : AppCompatActivity(), Media
 
     fun validaQuestao(resp:String?) {
 
-        val segundos = (barra.progress / 1000) % 60
+        val segundos = ((tik_tak_music?.duration!! - tik_tak_music?.currentPosition!!) / 1000) % 60
         val log = LogQuestao(questaoId = questao.codigo, resposta = resp, tempoResposta = segundos)
         if(resp==null)
             log.tempoResposta = 0
@@ -130,25 +133,6 @@ class ViewQuestao(var questao: Questao = Questao()) : AppCompatActivity(), Media
         startActivity(intent)
         finish()
     }
-
-    /*fun fadeAnimation(v: View, time: Long){
-        val fadeOut = ObjectAnimator.ofFloat(v, "alpha", 1f, .3f)
-        fadeOut.duration = time
-        val fadeIn = ObjectAnimator.ofFloat(v, "alpha", .3f, 1f)
-        fadeIn.duration = time
-
-        val mAnimationSet = AnimatorSet()
-
-        mAnimationSet.play(fadeIn).after(fadeOut)
-
-        mAnimationSet.addListener(object : AnimatorListenerAdapter() {
-            override fun onAnimationEnd(animation: Animator) {
-                super.onAnimationEnd(animation)
-                mAnimationSet.start()
-            }
-        })
-        mAnimationSet.start()
-    }*/
 
     //MediaPlayer
     override fun onPrepared(p0: MediaPlayer?) {

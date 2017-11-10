@@ -17,4 +17,6 @@ import com.kotlinquiz.model.LogQuestao
     @Update(onConflict = REPLACE)
     fun update(log: LogQuestao)
 
+    @Query("delete from logQuestao")
+    fun deleteAll()
 }

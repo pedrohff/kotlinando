@@ -3,10 +3,13 @@ package com.kotlinquiz.view
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
 import com.kotlinquiz.R
+import com.kotlinquiz.ext.deleteAll
 import com.kotlinquiz.ext.loadLogs
 import com.kotlinquiz.model.LogQuestao
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,15 +27,16 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ViewQuestao::class.java)
             startActivity(intent)
         }
+        animarBotao()
+        atualizarPontucao()
+    }
 
+    private fun atualizarPontucao() {
         val pontuacao: Double?
         val listLog = loadLogs(this)
         pontuacao = listLog.fold(0.0) { acc: Double, logQuestao: LogQuestao -> acc + logQuestao.pontuacao }
-
         val x = pontuacao.toInt()
         tvPontuacao.text = x.toString()
-        animarBotao()
-
     }
 
 
@@ -84,6 +88,19 @@ class MainActivity : AppCompatActivity() {
                 media = null
             }
         }
+    }
+
+    fun img_buttonClick(v: View?) {
+        val dialog = AlertDialog.Builder(this)
+        dialog.setMessage(R.string.deletar_pontuacao)
+                .setTitle(R.string.app_name)
+                .setPositiveButton(android.R.string.yes, { dialogInterface, i ->
+                    deleteAll(this@MainActivity)
+                    atualizarPontucao()
+                })
+                .setNegativeButton(android.R.string.no, null)
+                .create()
+        dialog.show()
     }
 }
 

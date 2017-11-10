@@ -44,20 +44,19 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:autoSizeMaxTextSize="100sp"
-        android:autoSizeMinTextSize="12sp"
-        android:autoSizeStepGranularity="4sp"
+        android:autoSizeMinTextSize="18sp"
+        android:autoSizeStepGranularity="2sp"
         android:autoSizeTextType="uniform"
-        android:text="TextView\ntv\ntvtvtvtvtvtvtv\ntvtvtvtvtvtvtvttt"
+        android:text="@string/txt_aprendendo"
         android:textColor="@color/colorTextPrimary"
-        android:textSize="28sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barra"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toBottomOf="@+id/barra" />
 
     <Button
         android:id="@+id/resp1"

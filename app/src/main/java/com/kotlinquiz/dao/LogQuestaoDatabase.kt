@@ -24,7 +24,8 @@ abstract class LogQuestaoDatabase : RoomDatabase() {
 
         fun getDB(context: Context) : LogQuestaoDatabase {
             if(INSTANCE == null) {
-                INSTANCE = Room.databaseBuilder(context.applicationContext, LogQuestaoDatabase::class.java, databaseName).fallbackToDestructiveMigration().allowMainThreadQueries().build()
+                INSTANCE = Room.databaseBuilder(context.applicationContext,
+                        LogQuestaoDatabase::class.java, databaseName).fallbackToDestructiveMigration().allowMainThreadQueries().build()
             }
             return INSTANCE as LogQuestaoDatabase
         }
@@ -33,15 +34,4 @@ abstract class LogQuestaoDatabase : RoomDatabase() {
             INSTANCE = null
         }
     }
-
-    /*companion object{
-
-
-        var dbInstance:LogQuestaoDao? = null
-        fun getInstance(context: Context):LogQuestaoDao?{
-            if(dbInstance == null)
-                dbInstance = Room.inMemoryDatabaseBuilder(context, LogQuestaoDatabase::class.java).build().logQuestaoDao()
-            return dbInstance;
-        }
-    }*/
 }

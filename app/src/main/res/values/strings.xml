@@ -4,4 +4,7 @@
     <string name="pontuacao_inicial">0000</string>
     <string name="txt_pontuacao">Pontuação:</string>
     <string name="txt_jogar">Jogar</string>
+    <string name="logo_do_kotlinando">Logo do Kotlinando</string>
+    <string name="botao_jogar">Botao Jogar</string>
+    <string name="deletar_pontuacao">Deseja realmente zerar a sua pontuação?</string>
 </resources>
